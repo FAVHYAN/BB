@@ -7,7 +7,7 @@ $x = 0;
 $array = array();
 
     while ($x<$c) {
-      $num_aleatorio = rand(1,7);
+      $num_aleatorio = rand(1,6);
       if (!in_array($num_aleatorio,$array)) {
         array_push($array,$num_aleatorio);
         $x++;
@@ -30,11 +30,9 @@ echo '<br>***************************************************************<br>';
 echo 'Las operaciones para encontrar el resultado: <br>';
 
 echo '<br>***************************************************************<br>';
-
-
+for ($i=0; $i < $c ; $i++) { 
+	
 	$resultado = $n%$array[$i];
-
-
 	if($resultado == 0)
 	{
 	$resultado = $n/$array[$i];
@@ -44,7 +42,7 @@ echo '<br>***************************************************************<br>';
 				$con = ' = '.$n;
 			else
 				$con = ' + ';
-		$pc = $array[$i].$con;
+			echo $pc = $array[$i].$con;
 		}
 		echo '<br>';
 		}else
@@ -71,5 +69,3 @@ echo '<br>***************************************************************<br>';
 					}
 				}
 			}
-
-exit();
