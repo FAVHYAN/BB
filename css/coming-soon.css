@@ -48,7 +48,11 @@ video {
   left: 0;
   height: 100%;
   width: 100%;
+<<<<<<< HEAD
   background-color: #cd9557;
+=======
+  background-color: #f6f4f1;
+>>>>>>> 2bd350881175d5df9498b8a02636fa6662d9c6f6
   opacity: 0.7;
   z-index: 1;
 }
