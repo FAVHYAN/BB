@@ -5,17 +5,15 @@ $c = $_GET['c'];
 $x = 0;
 $array = array();
 
-// $array = [1,2,3,4];
+
 
 while ($x<$c) {
-	$num_aleatorio = rand(1,6);
+	$num_aleatorio = rand(1,10);
 	if (!in_array($num_aleatorio,$array)) {
 		array_push($array,$num_aleatorio);
 		$x++;
 	}
 }
-
-
 
 echo '<br>';
 echo '<br>';
@@ -27,72 +25,48 @@ for ($i=0; $i < $c ; $i++) {
 
 	echo $array[$i].'&nbsp;';
 }
-echo '}'; echo ' ----- Cantidad de posibles <input id="cantidad" readonly style="background: transparent;border:none" />';
-echo '<br>***************************************************************<br>';
+echo '}'; echo ' ----- Cantidad de posibles ';
 
-echo 'Las operaciones para encontrar el resultado: <br>';
-
-echo '<br>***************************************************************<br>';
-
-recorre($array,$n);
+recorre($c,$n,$array);
 
 
-function recorre($array,$n,$ite){
+function recorre($c,$n,$array){
 
-		
-	for ($i=0; $i < count($array) ; $i++) { 
-		for ($j=0; $j < count($array); $j++) { 
-			
-			if($i <= $array[$i]){
-				echo $resultadoi = $array[$i];
-				echo ' + ';
-			}
-			if($j <= $array[$j]){
-				echo $resultadoj = $array[$j];
-			}
+ $matrix = array([$n+1],[$c]);
+
+        for($j=0;$j<$c;$j++)
+
+        {
+
+ 	           $matrix[0][$j] = 1;
+
+        }
+
+        for($i=1;$i<=$n;$i++)
+
+        {
+            for($j=0;$j<$c;$j++)
+
+            {
+                if($i>=$array[$j])
+                  $resultadoi = $matrix[$i-$array[$j]][$j];
+                else
+                 $resultadoi = 0;
 
 
-				$valor = $valor+count($resultado);
-			if($resultado < $n){				
-				recor($resultado,$resultadoi,$resultadoj,$n,$valor,$array);
-			}else if($resultado == $n){
-				echo '=';
-				echo $resultado = $resultadoi+$resultadoj;
-				cantidad($valor);
+                if($j>=1)
+                    $resultadoj = $matrix[$i][$j-1];
+                   else
+                	$resultadoj = 0;
+     
 
-			}
-			echo '<br>';
-		}
-		return $resultado;
+                $matrix[$i][$j]=$resultadoi+$resultadoj;
+
+            }
+
+        }
+
+        echo $matrix[$n][$c-1];
 	}
-	
-}
 
-function recor($r,$r1,$r2,$n,$valor,$value){
-
-for ($i=0; $i < count($value) ; $i++) { 
-	# code...
-}
-
-
-				$valor = $valor+count($r);
-				$resultado = $r+$r1;
-				if($r < $n){
-				echo  ' + '.$r1;
-					recor($resultado,$r2,$r1,$n,$valor);
-				}else if($r == $n){
-					echo ' = '.$r;
-				cantidad($valor);
-
-				}
-}
-
-
-
-function cantidad($a){
-	echo '<script>
-	$("#cantidad").val('.$a.');
-
-	</script>';
-}
 
