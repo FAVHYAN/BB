@@ -14,10 +14,12 @@ Se implemento el servicio solicitado segun la prueba.
 una vez se llega al procedimiento se toman los valores correspondientes:
 
 $n: valor objetivo
+
 $c: cantidad de items dentro del array
+
 $array: contiene los valores a calcular
 
-, se toma el campo c se le asignan valores aleatorias y sin repetir a la matriz principal con un loop while.
+se toma el campo c se le asignan valores aleatorias y sin repetir a la matriz principal con un loop while.
 
 Luego realiza la impresion que muestra en el front y hace llamado a la funcion getways, la cual recibe tres parametros: la cantidad, el valor objetivo y la matriz generada en el anterior punto. 
 
